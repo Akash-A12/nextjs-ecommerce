@@ -1,19 +1,10 @@
-import AdminDashboard from "@/components/AdminDashboard/AdminDashboard";
-import Signin from "@/components/Signin/Signin";
-import { useSession } from "next-auth/react";
+import Header from '@/components/Header/Header'
+import React from 'react'
 
-export default function Component() {
-  const { data: session } = useSession();
-  if (session) {
-    return (
-      <>
-      <AdminDashboard data={session} />
-      </>
-    );
-  }
+export default function index() {
   return (
     <>
-      <Signin/>
+    <Header />
     </>
-  );
+  )
 }
