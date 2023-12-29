@@ -32,7 +32,7 @@ function classNames(...classes) {
 
 export default function AdminDashboard({data}) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-console.log(data);
+
   return (
     <>
       <div>

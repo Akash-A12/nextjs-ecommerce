@@ -1,68 +1,98 @@
 import AdminDashboard from "@/components/AdminDashboard/AdminDashboard";
 import Layout from "@/components/Layout/Layout";
 import axios from "axios";
+import { redirect } from "next/navigation";
+import { Router, useRouter } from "next/router";
 import React, { useState } from "react";
 
 export default function NewProducts() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-
-  async function  createProduct(event) {
+  const [goToProducts, setGoToProducts] = useState(false);
+  const router = useRouter();
+  async function createProduct(event) {
     event.preventDefault();
-    const data = {title,description,price};
-    await axios.post('/api/products', data);
+    const data = { title, description, price };
+    await axios.post("/api/products", data);
+    setGoToProducts(true);
+  }
+  if (goToProducts) {
+    router.push("/admin/products");
   }
   return (
     <>
       <Layout>
-        <h1>New Product</h1>
-        <form onSubmit={createProduct}>
-          <div className="mt-2">
-            <label>Product Name</label>
-            <input
-              type="text"
-              name="product name"
-              id="product-name"
-              autoComplete="Product Name"
-              className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-              placeholder="Product Name"
-              onChange={(e) => setTitle(e.target.value)}
-              value={title}
-            />
+        <form class="w-full max-w-xl add-product-form" onSubmit={createProduct}>
+          <div class="md:flex md:items-center mb-6">
+            <div class="md:w-1/3">
+              <label
+                class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                for="inline-full-name"
+              >
+                Product Name
+              </label>
+            </div>
+            <div class="md:w-2/3">
+              <input
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                id="product-name"
+                type="text"
+                placeholder="Product Name"
+                onChange={(e) => setTitle(e.target.value)}
+                value={title}
+              />
+            </div>
           </div>
-          <div className="mt-2">
-            <label>Product Description</label>
-            <textarea
-              id="about"
-              name="about"
-              rows={3}
-              className="block rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              defaultValue={""}
-              placeholder="Product Description"
-              onChange={(e) => setDescription(e.target.value)}
-              value={description}
-            />
+          <div class="md:flex md:items-center mb-6">
+            <div class="md:w-1/3">
+              <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+                Product Description
+              </label>
+            </div>
+            <div class="md:w-2/3">
+              <textarea
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                defaultValue={""}
+                rows={3}
+                placeholder="Product Description"
+                onChange={(e) => setDescription(e.target.value)}
+                value={description}
+                id="product-description"
+              />
+            </div>
           </div>
-          <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
-            <label>Price</label>
-            <input
-              type="number"
-              name="Price"
-              id="price"
-              autoComplete="Price"
-              className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-              placeholder="Price"
-              onChange={(e) => setPrice(e.target.value)}
-              value={price}
-            />
+          <div class="md:flex md:items-center mb-6">
+            <div class="md:w-1/3">
+              <label
+                class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                for="inline-full-name"
+              >
+                Price
+              </label>
+            </div>
+            <div class="md:w-2/3">
+              <input
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                id="price"
+                type="number"
+                placeholder="Price"
+                onChange={(e) => setPrice(e.target.value)}
+                value={price}
+              />
+            </div>
           </div>
-          <button
-            type="submit"
-            className='className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"'
-          >
-            Save
-          </button>
+          <div class="md:flex md:items-center">
+            <div class="md:w-1/3"></div>
+            <div class="md:w-2/3">
+              <button
+                class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                type="submit"
+              >
+                Save
+              </button>
+            </div>
+          </div>
         </form>
       </Layout>
     </>

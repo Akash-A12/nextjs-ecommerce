@@ -2,4 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url(../styles/components/product.css);
 
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: auto;
+  }
+  
+  @media only screen and (min-width: 1200px) {
+    .container {
+      max-width: 1334px;
+    }
+  }
+  
+  @media screen and (min-width: 992px) and (max-width: 1199px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+
+
+
+  .page-wrapper {
+    /* background-color: rgb(211, 211, 211); */
+    align-items: center;
+    width: 85%;
+    justify-content: center;
+    right: 0;
+  }

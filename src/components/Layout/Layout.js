@@ -8,7 +8,7 @@ export default function Layout({ children }) {
     return (
       <>
         <AdminDashboard data={session} />
-        <div className="" style={{ position: "absolute", left: "18rem" }}>{children}</div>
+        <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:flex-col w-full page-wrapper" >{children}</div>
       </>
     );
   }
