@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url(../styles/components/product.css);
+@import url(../styles/pages/products.css);
+@import url(../styles/components/ProductTable.css);
 
 .container {
     padding-right: 15px;
@@ -37,9 +38,7 @@
 
 
   .page-wrapper {
-    /* background-color: rgb(211, 211, 211); */
-    align-items: center;
-    width: 85%;
-    justify-content: center;
+    width: 81%;
     right: 0;
+    top: 80px;
   }

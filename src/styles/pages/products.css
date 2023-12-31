@@ -1,0 +1,22 @@
+.add-product-form {
+    margin: auto;
+}
+
+/* Delete Page starts */
+
+.delete-content-wrapper {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.delete-content-wrapper h1 {
+    margin-bottom: 25px;
+    font-size: 25px;
+    text-transform: capitalize;
+}
+
+.delete-content-wrapper .button-wrapper button {
+    transition: 0.4s ease-in-out;
+}
+
+/* Delete Page ends */

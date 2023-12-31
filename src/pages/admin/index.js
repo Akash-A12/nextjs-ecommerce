@@ -1,12 +1,12 @@
-import Layout from '@/components/Layout/Layout'
-import React from 'react'
+import AdminDashbordLayout from '@/components/Layout/AdminDashbordLayout';
+import React from 'react';
 
 export default function admin() {
   return (
     <>
-    <Layout>
+    <AdminDashbordLayout>
         <h1>Admin</h1>
-    </Layout>
+    </AdminDashbordLayout>
     </>
   )
 }

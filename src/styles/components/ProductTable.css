@@ -1,0 +1,32 @@
+.product-table-section .add-new-product-button {
+    display: inline-block;
+}
+
+
+.product-table-section .edit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-table-section .edit-button svg {
+    margin-right: 4;
+}
+
+.product-table-section table tr td,
+.product-table-section table tr th {
+    border: 1px solid #d3d3d3;
+}
+
+.product-table-section .edit-delete-button-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.product-table-section .edit-delete-button-wrapper .delete-button {
+    color: #d60000;
+}
+
+.product-table-section .edit-delete-button-wrapper .delete-button:hover {
+    color: red;
+}
