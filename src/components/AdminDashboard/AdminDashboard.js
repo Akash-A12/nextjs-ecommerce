@@ -18,10 +18,16 @@ import {
 } from "@heroicons/react/20/solid";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
+import Image from "next/image";
 
 const navigation = [
   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Products", href: "/admin/products", icon: UsersIcon, current: false },
+  {
+    name: "Products",
+    href: "/admin/products",
+    icon: UsersIcon,
+    current: false,
+  },
   { name: "Orders", href: "#", icon: FolderIcon, current: false },
   { name: "Store", href: "/", icon: ChartPieIcon, current: false },
 ];
@@ -30,7 +36,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function AdminDashboard({data}) {
+export default function AdminDashboard({ data }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -91,11 +97,13 @@ export default function AdminDashboard({data}) {
                   {/* Sidebar component, swap this element with another sidebar if you like */}
                   <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 pb-4">
                     <div className="flex h-16 shrink-0 items-center">
-                      <img
+                      {/* <Image
+                        width={38}
+                        height={32}
                         className="h-8 w-auto"
                         src="https://tailwindui.com/img/logos/mark.svg?color=white"
                         alt="Your Company"
-                      />
+                      /> */}
                     </div>
                     <nav className="flex flex-1 flex-col">
                       <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -153,11 +161,13 @@ export default function AdminDashboard({data}) {
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 pb-4">
             <div className="flex h-16 shrink-0 items-center">
-              <img
+              {/* <Image
+                width={38}
+                height={32}
                 className="h-8 w-auto"
                 src="https://tailwindui.com/img/logos/mark.svg?color=white"
                 alt="Your Company"
-              />
+              /> */}
             </div>
             <nav className="flex flex-1 flex-col">
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -259,10 +269,12 @@ export default function AdminDashboard({data}) {
                 <Menu as="div" className="relative">
                   <Menu.Button className="-m-1.5 flex items-center p-1.5">
                     <span className="sr-only">Open user menu</span>
-                    <img
+                    <Image
                       className="h-8 w-8 rounded-full bg-gray-50"
                       src={data?.user?.image}
                       alt={data?.user?.name}
+                      width={32}
+                      height={32}
                     />
                     <span className="hidden lg:flex lg:items-center">
                       <span
@@ -288,12 +300,14 @@ export default function AdminDashboard({data}) {
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
                       <Menu.Item>
-                          <button
-                            onClick={() => signOut("google")}
-                            className={'block px-3 py-1 text-sm leading-6 text-gray-900'}
-                          >
-                            Sign out
-                          </button>
+                        <button
+                          onClick={() => signOut("google")}
+                          className={
+                            "block px-3 py-1 text-sm leading-6 text-gray-900"
+                          }
+                        >
+                          Sign out
+                        </button>
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>
