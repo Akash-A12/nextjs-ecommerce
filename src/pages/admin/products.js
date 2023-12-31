@@ -3,18 +3,19 @@ import ProductTable from "@/components/ProductTable/ProductTable";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-export default function products() {
-  const [products, setProducts] = useState([]);
+export default function Products() {
+  const [productInfo, setProductInfo] = useState([]);
 
   useEffect(() => {
     axios.get("/api/products").then((res) => {
-      setProducts(res.data);
+      setProductInfo(res.data);
     });
   }, []);
+
   return (
     <>
       <AdminDashbordLayout>
-        <ProductTable data={products} />
+        <ProductTable data={productInfo} />
       </AdminDashbordLayout>
     </>
   );
