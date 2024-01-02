@@ -1,0 +1,39 @@
+.loader-section {
+    background: #585858d6;
+    right: 0;
+    left: 0;
+    border: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 5;
+    width: 100%;
+    position: absolute;
+}
+
+.loader-section .loader-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+}
+
+.loader-section .animate-spin {
+    animation: spin 1s linear infinite;
+    width: 35px;
+    height: 35px;
+    position: relative;
+    z-index: 88888;
+    color: #fff;
+}
+
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

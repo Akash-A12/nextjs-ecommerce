@@ -4,6 +4,7 @@
 
 @import url(../styles/pages/products.css);
 @import url(../styles/components/ProductTable.css);
+@import url(../styles/components/Loading.css);
 
 .container {
     padding-right: 15px;
